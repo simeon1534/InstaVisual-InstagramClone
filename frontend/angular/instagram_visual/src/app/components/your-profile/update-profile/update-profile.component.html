@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Animated Signup Form | CodingNepal</title>
+  <link rel="stylesheet" href="update-profile.component.scss">
+</head>
+
+<body>
+<div class="center">
+  <h1>Edit Your Profile</h1>
+  <form [formGroup]="userForm"   method="post">
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="username" name="username"  formControlName="username" required>
+      <span></span>
+      <label>Username</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="email" name="email"  formControlName="email" required>
+      <span></span>
+      <label>Email</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="password" id="password" name="password"  formControlName="password" required>
+      <span></span>
+      <label>Password</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="firstName" name="firstName"  formControlName="first_name" required>
+      <span></span>
+      <label>First Name</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="lastName" name="lastName"  formControlName="last_name" required>
+      <span></span>
+      <label>Last Name</label>
+    </div>
+
+    <input   (click)="submit()" type="submit" value="Submit" class="signup_btn">
+
+
+  </form>
+</div>
+</body>
+
+</html>
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Animated Login Form | CodingNepal</title>
+  <link rel="stylesheet" href="login.component.scss">
+</head>
+<body>
+<div class="center">
+  <h1>Log In</h1>
+  <form action="/login" method="post">
+
+    <div class="form-group txt_field" >
+      <input class="form-control" type="text" id="email" name="email" required  [(ngModel)]="email_input" >
+      <span></span>
+      <label>Email</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="password" id="password" name="password" required [(ngModel)]="password_input">
+      <span></span>
+      <label>Password</label>
+    </div>
+
+    <div class="form-group pass">Forgot Password?</div>
+    <input (click)="login()" type="submit" value="Submit" >
+    <div class="signup_link">
+      Not a member? <a href="/signup">Sign Up</a>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Login</title>-->
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--  <h1  class="loginH1">Login</h1>-->
+<!--  <form  action="/login" method="post">-->
+<!--    <div class="form-group">-->
+<!--      <label for="email">Email address</label>-->
+<!--      <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email_input" >-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="password">Password</label>-->
+<!--      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password_input">-->
+<!--    </div>-->
+<!--    <button (click)="login()" type="submit" class="btn btn-primary">Submit</button>-->
+<!--    <button (click)="goToSignUp()" type="submit" class="btn btn-primary float-right">Sign Up</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+

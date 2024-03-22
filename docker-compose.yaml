@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  mysql-custom:
+    container_name: mysql-db
+    image: mysql-custom
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+    networks:
+      - backend-database-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  instagram-backend:
+    container_name: instagram-backend-instance
+    image: instagram-backend
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    ports:
+      - 500:500
+    networks:
+      - backend-database-network
+      - frontend-backend-network
+
+  instagram-frontend:
+    container_name: instagram-frontend-instance
+    image: instagram-frontend
+    build:
+      context: ./frontend/angular/instagram_visual
+      dockerfile: ./Dockerfile
+    networks:
+      - frontend-backend-network
+    ports:
+      - 4200:4200
+
+
+networks:
+  frontend-backend-network:
+    driver: bridge
+
+  backend-database-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    name: mysql-data

@@ -1,0 +1,17 @@
+<html>
+<head>
+  <link rel="stylesheet" href="list.component.scss">
+</head>
+<body>
+  <div class="container">
+    <div *ngFor="let item of photoUserInfo">
+      <div class="inner_container">
+        <p class="info">{{item.username}} uploaded at {{item.date_of_upload}}</p>
+        <p class="description">{{item.photo_description}}</p>
+        <img [src]="item.photo_base64" alt="User photo" class="photo">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

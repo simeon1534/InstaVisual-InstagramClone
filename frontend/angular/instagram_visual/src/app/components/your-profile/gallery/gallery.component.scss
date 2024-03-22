@@ -1,0 +1,33 @@
+*{
+
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: whitesmoke;
+}
+.my-carousel {
+  touch-action: none;
+
+}
+:host {
+  display: block;
+  touch-action: none;
+}
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+img {
+  border-radius: 10px;
+}
+
+.img_in_carousel {
+  display: block;
+
+  //aspect-ratio: 16 / 16; /* Set aspect ratio to 16:9 */
+  //max-height: 100vw; /* Restrict height to 100% of viewport width */
+  width: 100%;
+  height: auto;
+}
+

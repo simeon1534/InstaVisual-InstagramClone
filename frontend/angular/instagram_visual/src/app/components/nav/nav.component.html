@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blue and White Nav Bar</title>
+  <link rel="stylesheet" type="nav.component.scss" >
+  <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+</head>
+<body>
+
+<div>
+  <nav class="navbar">
+
+    <h4 class="brand_text">InstaVisual</h4>
+    <ul >
+
+
+      <span ><li><a (click)="redirectToHome()"  class="nav-btn">Home</a></li></span>
+      <li><a (click)="redirectToAbout()" class="nav-btn">About</a></li>
+      <li><a (click)="redirectToProfile()"  class="nav-btn">Your Profile</a></li>
+
+    </ul>
+
+        <form method="post" class="search-form">
+            <input type="text" name="searchText" placeholder="Search for people" [(ngModel)]="searchText" class="form-control search-input">
+            <button (click)="search()" type="submit" class="search-button">Search</button>
+        </form>
+
+        <img (click)="sign_out()" class="sign_out_icon" src="../../../assets/logout.png" alt="My Image">
+
+  </nav>
+</div>
+</body>
+</html>

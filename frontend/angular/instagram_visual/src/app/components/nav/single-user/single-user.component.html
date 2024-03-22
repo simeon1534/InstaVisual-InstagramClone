@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TITLE</title>
+  <link rel="stylesheet" href="single-user.component.scss">
+</head>
+<body>
+  <div class="container">
+  <h1>Account Information</h1>
+    <div class="info">
+      <div >
+        <p>Username: {{userName}}</p>
+        <p>First Name: {{firstName}}</p>
+        <p>Last Name: {{lastName}}</p>
+      </div>
+
+
+    </div>
+
+    <div class="gallery">
+      <app-gallery [slides]="slides"></app-gallery>
+    </div>
+
+
+  </div>
+</body>
+</html>

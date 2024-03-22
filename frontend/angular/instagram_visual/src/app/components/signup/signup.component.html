@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Animated Signup Form | CodingNepal</title>
+  <link rel="stylesheet" href="signup.component.scss">
+</head>
+
+<body>
+<div class="center">
+  <h1>Sign Up</h1>
+  <form [formGroup]="userForm" (ngSubmit)="signup()" action="/signup" method="post">
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="username" name="username" required formControlName="username">
+      <span></span>
+      <label>Username</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="email" name="email" required formControlName="email" >
+      <span></span>
+      <label>Email</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="password" id="password" name="password" required formControlName="password">
+      <span></span>
+      <label>Password</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="firstName" name="firstName" required formControlName="first_name">
+      <span></span>
+      <label>First Name</label>
+    </div>
+
+    <div class="form-group txt_field">
+      <input class="form-control" type="text" id="lastName" name="lastName" required formControlName="last_name">
+      <span></span>
+      <label>Last Name</label>
+    </div>
+
+    <input  type="submit" value="Submit" class="signup_btn">
+    <div class="signup_link">
+      <p >Already have an account? <a class="edinred" href="/login">Log In</a></p>
+    </div>
+
+  </form>
+</div>
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Sign up</title>-->
+<!--  <link rel="stylesheet" href="signup.component.scss">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div >-->
+<!--  <h1 >Sign up</h1>-->
+<!--  <form [formGroup]="userForm" (ngSubmit)="signup()" action="/signup" method="post">-->
+<!--    <div class="form-group">-->
+<!--      <label for="username">Username</label>-->
+<!--      <input type="text" class="form-control" id="username" name="username" required formControlName="username">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="email">Email address</label>-->
+<!--      <input type="email" class="form-control" id="email" name="email" required formControlName="email">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="password">Password</label>-->
+<!--      <input type="password" class="form-control" id="password" name="password" required formControlName="password">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="firstName">First name (optional)</label>-->
+<!--      <input type="text" class="form-control" id="firstName" name="firstName" formControlName="first_name">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="lastName">Last name (optional)</label>-->
+<!--      <input type="text" class="form-control" id="lastName" name="lastName" formControlName="last_name">-->
+<!--    </div>-->
+<!--    <button  type="submit" >Submit</button>-->
+<!--    <button (click)="goToLogIn()" type="submit" >Login</button>-->
+
+<!--  </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+

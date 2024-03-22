@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TITLE</title>
+  <link rel="stylesheet" href="your-profile.component.scss">
+</head>
+<body>
+<div class="container">
+  <h1>Account Information</h1>
+   <div class="info">
+    <div >
+      <p>Username: {{usernameAcc}}</p>
+      <p>First Name: {{first_nameAcc}}</p>
+      <p>Last Name: {{last_nameAcc}}</p>
+
+    </div>
+
+    <div>
+      <button class="button_edit" (click)="editInfo()" >Edit Profile</button>
+      <br>
+      <button class="button_delete" (click)="delete()" >Delete Profile</button>
+    </div>
+   </div>
+
+  <div class="upload_images_margin">
+    <h1 >Upload Your Images</h1>
+    <form class="form_margin">
+      <label for="description">Description:</label>
+      <textarea type="text" id="description" name="description" rows="4" cols="50" [(ngModel)]="description"></textarea>
+
+      <label for="fileInput">Choose an image to upload:</label>
+      <input type="file" (change)="getFile($event)" id="fileInput" accept="image/*">
+
+      <button type="button" (click)="submit()">Upload</button>
+    </form>
+  </div>
+
+  <div class="gallery">
+    <app-gallery [slides]="slides"></app-gallery>
+  </div>
+</div>
+</body>
+</html>
+
+
+<!--<html>-->
+<!--<head>-->
+<!--  <title>TITLE</title>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--  <label for="description">Description:</label>-->
+<!--  <textarea type="text" id="description" name="description" rows="4" cols="50" [(ngModel)]="description"></textarea>-->
+
+<!--  <input type="file" (change)="getFile($event)" id="fileInput" accept="image/*">-->
+
+<!--  <button type="button" (click)="submit()">Submit</button>-->
+<!--  <br>-->
+<!--  <app-gallery  [slides]="slides"></app-gallery>-->
+<!--</body>-->
+<!--</html>-->
