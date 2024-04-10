@@ -24,6 +24,6 @@ jobs:
       # Step 3: Enter in backend container and run api tests
       - name: Enter Docker Container and run tests
         run: |
-          CONTAINER_ID=$(docker-compose -f docker-compose.yml ps -q instagram-backend-instance)
-          docker exec -it $CONTAINER_ID bash -c "cd ./backend && npm install && npm run test"
+          CONTAINER_ID=$(docker-compose ps -q instagram-backend)
+          docker exec -it $CONTAINER_ID bash -c "npm install && npm run test"
 
