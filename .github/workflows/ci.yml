@@ -11,38 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # Step 1: Install project dependencies (root level)
-      - name: Install project dependencies
-        run: npm install
+      # Step 1: Build images
+      - name: Build Docker images
+        run: |
+          docker-compose -f docker-compose.yml build
 
-      # Step 2: Change directory to backend
-      - name: Change directory to backend
-        run: cd backend  # Navigate to backend directory
+      # Step 2: Create containers
+      - name:  Start Docker Compose services
+        run: |
+          docker-compose -f docker-compose.yml up -d
+          
+      # Step 3: Enter in backend container and run api tests
+      - name: Enter Docker Container and run tests
+        run: |
+          CONTAINER_ID=$(docker-compose -f docker-compose.yml ps -q instagram-backend-instance)
+          docker exec -it $CONTAINER_ID bash -c "cd ./backend && npm install && npm run test"
 
-      # Step 3: Install backend dependencies
-      - name: Install backend dependencies
-        run: npm install  # Install backend dependencies
-
-      # Step 4: Start backend server
-      - name: Start backend server
-        run: npm run server  # Start backend server
-
-      # Step 5: Run backend tests
-      - name: Run backend tests
-        run: npm run test  # Run backend tests
-
-      # Step 6: Change directory to frontend
-      - name: Change directory to frontend
-        run: cd ../frontend  # Navigate to frontend directory
-
-      # Step 7: Install frontend dependencies
-      - name: Install frontend dependencies
-        run: npm install  # Install frontend dependencies
-        
-      # Step 8: Change directory to root
-      - name: Change directory to root
-        run: cd ../  # Navigate to root folder
-        
-      # Step 9: Start frontend server (Angular)
-      - name: Start frontend server (Angular)
-        run: npm run frontend-angular  # Start frontend server
