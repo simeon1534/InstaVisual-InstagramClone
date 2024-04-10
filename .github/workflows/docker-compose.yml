@@ -1,19 +1,39 @@
-name: Docker Compose CI/CD
+name: API Tests
 
 on:
   push:
-    branches: [ "master" ]
-  
+    branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Build Docker Compose services
-      run: docker-compose build
+      - name: Change directory to backend
+        run: cd ./backend
 
-    - name: Run Docker Compose services
-      run: docker-compose up -d
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Specify the Node.js version needed for your project
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
+
+      # Optionally, you can include steps to publish test results or artifacts
+      # For example, to publish test coverage reports:
+      # - name: Upload coverage report
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: coverage-report
+      #     path: path/to/coverage/report
+
+      # - name: Publish coverage report
+      #   uses: actions/codecov@v2
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}  # Replace with your Codecov token
