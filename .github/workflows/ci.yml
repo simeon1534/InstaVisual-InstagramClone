@@ -1,0 +1,48 @@
+name: Run Server and Tests
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Step 1: Install project dependencies (root level)
+      - name: Install project dependencies
+        run: npm install
+
+      # Step 2: Change directory to backend
+      - name: Change directory to backend
+        run: cd backend  # Navigate to backend directory
+
+      # Step 3: Install backend dependencies
+      - name: Install backend dependencies
+        run: npm install  # Install backend dependencies
+
+      # Step 4: Start backend server
+      - name: Start backend server
+        run: npm run server  # Start backend server
+
+      # Step 5: Run backend tests
+      - name: Run backend tests
+        run: npm run test  # Run backend tests
+
+      # Step 6: Change directory to frontend
+      - name: Change directory to frontend
+        run: cd ../frontend  # Navigate to frontend directory
+
+      # Step 7: Install frontend dependencies
+      - name: Install frontend dependencies
+        run: npm install  # Install frontend dependencies
+        
+      # Step 8: Change directory to root
+      - name: Change directory to root
+        run: cd ../  # Navigate to root folder
+        
+      # Step 9: Start frontend server (Angular)
+      - name: Start frontend server (Angular)
+        run: npm run frontend-angular  # Start frontend server
