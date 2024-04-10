@@ -33,7 +33,7 @@ export class YourProfileComponent {
     if (myObject) {
       const myId: number = myObject.id;
       console.log("VIEW Photos")
-      this.http.get(`http://localhost:500/photo_api/user/${myId}`, {headers})
+      this.http.get(`http://localhost:5000/photo_api/user/${myId}`, {headers})
         .subscribe((res) =>{
           this.myPhotos = res
           console.log(this.myPhotos)
@@ -77,7 +77,7 @@ export class YourProfileComponent {
       let accInfo : any = localStorage.getItem('loggedUser');
       accInfo = JSON.parse(accInfo)
 
-      this.http.delete(`http://localhost:500/user_api/user/delete/${accInfo.id}`, {headers})
+      this.http.delete(`http://localhost:5000/user_api/user/delete/${accInfo.id}`, {headers})
         .subscribe((res) => {
           console.log(res)
         })
@@ -107,7 +107,7 @@ export class YourProfileComponent {
     const headers = new HttpHeaders({
       Authorization: "abc123"
     });
-    this.http.post("http://localhost:500/photo_api/new_photo" , dictionaryToDB, {headers})
+    this.http.post("http://localhost:5000/photo_api/new_photo" , dictionaryToDB, {headers})
         .subscribe((res) => {
         console.log({res})
         this.description = '';

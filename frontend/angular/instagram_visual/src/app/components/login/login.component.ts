@@ -52,7 +52,7 @@ export class LoginComponent {
       Authorization: "abc123"
     });
 
-    this.http.get("http://localhost:500/user_api/users",{headers})
+    this.http.get("http://localhost:5000/user_api/users",{headers})
       .subscribe((res) => {
         this.users = res as Users[];
         const userExist = this.users.find(u => u.email == this.email_input && u.password == this.password_input)

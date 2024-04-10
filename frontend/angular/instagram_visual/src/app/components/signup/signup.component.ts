@@ -79,7 +79,7 @@ export class SignupComponent {
       Authorization: "abc123"
     });
 
-    this.http.get("http://localhost:500/user_api/users", {headers})
+    this.http.get("http://localhost:5000/user_api/users", {headers})
       .subscribe((res) => {
         this.users = res as Users[];
         const formValues = this.userForm.value;
@@ -98,12 +98,12 @@ export class SignupComponent {
             console.log("SIGNED UPPED")
 
             // POST to db
-            this.http.post("http://localhost:500/user_api/new_user", formValues, {headers})
+            this.http.post("http://localhost:5000/user_api/new_user", formValues, {headers})
               .subscribe( (res) => {
                 console.log({res})
 
                 // GET USERS AGAIN to take user_id for token
-                this.http.get("http://localhost:500/user_api/users", {headers})
+                this.http.get("http://localhost:5000/user_api/users", {headers})
                   .subscribe((res) => {
                     this.users = res as Users[];
                     const userExistWhenSigned = this.users.find(u => u.email == formValues.email && u.username == formValues.username)

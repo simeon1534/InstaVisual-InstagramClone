@@ -12,13 +12,13 @@ export const uploadPhoto = async (req: Request, res: Response) => {
 
 
     if (!photoUploadData.photo_base64) {
-        return res.send({
+        return res.status(400).send({
             status: 400,
             message: "photo base64 encoding has not been provided"
         })
     }
     if (!photoUploadData.photo_description) {
-        return res.send({
+        return res.status(400).send({
             status: 400,
             message: "Photo Description has not been provided "
         })
@@ -27,7 +27,7 @@ export const uploadPhoto = async (req: Request, res: Response) => {
 
     const photoModel = new PhotoModel();
     await photoModel.uploadPhoto(photoUploadData)
-    res.send({
+    res.status(201).send({
         status: 201,
         message: "Photo uploaded successfully!"
     })

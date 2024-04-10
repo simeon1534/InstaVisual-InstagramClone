@@ -22,7 +22,7 @@ export class NavComponent {
       Authorization: "abc123"
     });
     console.log(this.searchText)
-    this.http.get(`http://localhost:500/user_api/username/${this.searchText}`, {headers})
+    this.http.get(`http://localhost:5000/user_api/username/${this.searchText}`, {headers})
       .subscribe((res) => {
         this.currentUser = res;
         if (this.currentUser.length !== 0)  {

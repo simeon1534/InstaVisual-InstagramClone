@@ -42,7 +42,7 @@ export class UpdateProfileComponent {
 
     // Check in database for same username or email or both
 
-    this.http.get("http://localhost:500/user_api/users", {headers})
+    this.http.get("http://localhost:5000/user_api/users", {headers})
       .subscribe((res) => {
         this.users = res as Users[];
         const formValues = this.userForm.value;
@@ -97,7 +97,7 @@ export class UpdateProfileComponent {
 
             accInfo.last_name = updateUserData.last_name
           }
-          this.http.put(`http://localhost:500/user_api/user/update/${accInfo.id}`, updateUserData,{headers})
+          this.http.put(`http://localhost:5000/user_api/user/update/${accInfo.id}`, updateUserData,{headers})
             .subscribe((res) => {
               console.log(res)
               localStorage.setItem("loggedUser",JSON.stringify(accInfo));

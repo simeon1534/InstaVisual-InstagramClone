@@ -22,7 +22,7 @@ services:
       context: ./backend
       dockerfile: ./Dockerfile
     ports:
-      - 500:500
+      - 5000:5000
     networks:
       - backend-database-network
       - frontend-backend-network

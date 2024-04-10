@@ -1,4 +1,4 @@
-import {Express, urlencoded} from "express"
+import {Express, urlencoded} from "express";
 const express = require('express');
 
 import {userRouter} from "./routes/userRoutes";
@@ -22,6 +22,6 @@ server.use('/photo_api',auth,  photoRouter)
 //server.post("/users/add/:id/:name/:email/:age", addUser)
 //server.get("/users/find/:email", findUserByEmail)
 
-server.listen(500, () => {
+server.listen(5000, () => {
     console.log("Backend Started...")
 })

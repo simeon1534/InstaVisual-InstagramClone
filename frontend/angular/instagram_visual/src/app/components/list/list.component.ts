@@ -16,7 +16,7 @@ export class ListComponent {
   constructor(private http: HttpClient) {
   }
   ngOnInit(): void {
-    this.http.get("http://localhost:500/photo_api/photos", {headers: this.headers})
+    this.http.get("http://localhost:5000/photo_api/photos", {headers: this.headers})
       .subscribe((res) => {
         this.photoUserInfo = res ;
         this.photoUserInfo.reverse();

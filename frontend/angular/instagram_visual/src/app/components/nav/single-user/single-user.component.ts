@@ -43,7 +43,7 @@ export class SingleUserComponent implements OnDestroy {
   }
 
   loadUserDetails() {
-    this.http.get(`http://localhost:500/user_api/user/${this.userId}`, {headers: this.headers})
+    this.http.get(`http://localhost:5000/user_api/user/${this.userId}`, {headers: this.headers})
       .subscribe((res: any) => {
         console.log(res)
         this.userName = res[0].username
@@ -53,7 +53,7 @@ export class SingleUserComponent implements OnDestroy {
   }
 
   loadUserPhotos() {
-    this.http.get(`http://localhost:500/photo_api/user/${this.userId}`, {headers: this.headers})
+    this.http.get(`http://localhost:5000/photo_api/user/${this.userId}`, {headers: this.headers})
       .subscribe((res) => {
         this.userPhotos = res;
         console.log(this.userPhotos);

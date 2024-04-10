@@ -15,7 +15,7 @@ RUN npm install
 COPY . .
 
 # Expose the port your app runs on
-EXPOSE 500
+EXPOSE 5000
 
 # Check if the app is within a container
 ENV AM_I_IN_A_DOCKER_CONTAINER Yes
