@@ -1,39 +1,30 @@
-name: API Tests
+name: Run Server and Tests
 
 on:
   push:
     branches: [ master ]
 
 jobs:
-  test:
+  run-tests:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Change directory to backend
-        run: cd ./backend
+      # Step 1: Start backend server
+      - name: Start backend server
+        run: npm run server
+        working-directory: ./backend  # Set working directory to backend directory
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'  # Specify the Node.js version needed for your project
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
+      # Step 2: Run backend tests
+      - name: Run backend tests
         run: npm run test
+        working-directory: ./backend  # Set working directory to backend directory
 
-      # Optionally, you can include steps to publish test results or artifacts
-      # For example, to publish test coverage reports:
-      # - name: Upload coverage report
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: coverage-report
-      #     path: path/to/coverage/report
+      # Step 3: Change directory to frontend relative to backend directory
+      - name: Change directory to frontend
+        run: cd ../  # Navigate to default directory relative to backend
 
-      # - name: Publish coverage report
-      #   uses: actions/codecov@v2
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}  # Replace with your Codecov token
+      # Step 4: Start frontend server (Angular)
+      - name: Start frontend server (Angular)
+        run: npm run frontend-angular
